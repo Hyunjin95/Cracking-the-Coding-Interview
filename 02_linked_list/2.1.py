@@ -23,6 +23,8 @@ class Test(unittest.TestCase):
         test_ll.insert_front(3)
         test_ll.insert_front(2)
         test_ll.insert_front(1)
+        test_ll.insert_front(2)
+        test_ll.insert_front(1)
         test_ll.insert_front(5)
         remove_duplicate(test_ll)
         self.assertEqual(str(test_ll), "5 -> 1 -> 2 -> 3")
