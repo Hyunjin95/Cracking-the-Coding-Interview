@@ -1,7 +1,7 @@
 import unittest
 
 
-# 1.1 - Check if a string has duplicate characters.
+# Check if a string has duplicate characters.
 def has_duplicate(string):
     if len(string) > 128:
         return True
