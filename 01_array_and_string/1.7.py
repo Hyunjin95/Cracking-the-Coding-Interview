@@ -8,7 +8,7 @@ def rotate_matrix(mat):
     layer = 0
 
     while layer * 2 < len_mat:
-        first, last = 0+layer, len_mat-layer-1
+        first, last = 0 + layer, len_mat - layer - 1
         for i in range(first, last, 1):
             offset = i - first
             tmp_top = mat[first][i]
