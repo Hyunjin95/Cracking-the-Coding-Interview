@@ -45,7 +45,7 @@ class Test(unittest.TestCase):
         # Now test_ll2 is '11 -> 12 -> 4(test_ll1)'
         curr2.next = curr1
         
-        self.assertEqual(find_intersection(test_ll1, test_ll2), curr1)
+        self.assertEqual(find_intersection(test_ll1, test_ll2).item, 4)
         curr2.next = None
         self.assertEqual(find_intersection(test_ll1, test_ll2), None)
 
