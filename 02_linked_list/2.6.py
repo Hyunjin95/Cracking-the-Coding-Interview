@@ -8,14 +8,14 @@ def is_palindrome(ll):
     left_half = []
     curr = ll.head
 
-    for i in range(half_len):
+    for _ in range(half_len):
         left_half.append(curr.item)
         curr = curr.next
 
     if len(ll) % 2 == 1:
         curr = curr.next
 
-    for i in range(half_len):
+    for _ in range(half_len):
         if left_half.pop() != curr.item:
             return False
         curr = curr.next

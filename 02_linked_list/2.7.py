@@ -8,11 +8,11 @@ def find_intersection(ll1, ll2):
     curr1, curr2 = ll1.head, ll2.head
 
     if len1 >= len2:
-        for i in range(len1 - len2):
+        for _ in range(len1 - len2):
             curr1 = curr1.next
         return first_node_of_intersection(curr1, curr2)
     else:
-        for i in range(len2 - len1):
+        for _ in range(len2 - len1):
             curr2 = curr2.next
         return first_node_of_intersection(curr2, curr1)
 
@@ -52,4 +52,3 @@ class Test(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
