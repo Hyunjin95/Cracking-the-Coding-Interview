@@ -61,18 +61,26 @@ class AnimalShelter:
         dog = self.dog_list.first
         cat = self.cat_list.first
         animal_list = []
-        while dog or cat:
-            if not dog or cat.order <= dog.order:
+
+        while dog and cat:
+            if cat.order <= dog.order:
                 animal_list.append(str(cat))
                 cat = cat.next
             else:
                 animal_list.append(str(dog))
                 dog = dog.next
+        
+        while dog:
+            animal_list.append(str(dog))
+            dog = dog.next
+        
+        while cat:
+            animal_list.append(str(cat))
+            cat = cat.next
 
         return_str += " -> ".join(animal_list)
-        return_str += "\n"
         return return_str
-    
+        
     @property
     def dog_list(self):
         return self._dog_list
@@ -180,7 +188,6 @@ class Test(unittest.TestCase):
         shelter.register(c2)
         shelter.register(d3)
         shelter.register(c3)
-        print(shelter)
         self.assertEqual(str(shelter.adopt()), "Python")
         self.assertEqual(str(shelter.adopt_cat()), "JavaScript")
         self.assertEqual(str(shelter.adopt_dog()), "C")
