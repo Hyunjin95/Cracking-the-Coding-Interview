@@ -70,13 +70,10 @@ class AnimalShelter:
                 animal_list.append(str(dog))
                 dog = dog.next
         
-        while dog:
-            animal_list.append(str(dog))
-            dog = dog.next
-        
-        while cat:
-            animal_list.append(str(cat))
-            cat = cat.next
+        remain = dog or cat
+        while remain:
+            animal_list.append(str(remain))
+            remain = remain.next
 
         return_str += " -> ".join(animal_list)
         return return_str
