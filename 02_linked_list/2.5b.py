@@ -2,7 +2,7 @@ import unittest
 from linked_list import LinkedList
 
 
-# It's the same as problem 2.5. However, numbers are arranged ordinarily in this problem.
+# It's the same as problem 2.5. However, numbers are arranged normally in this problem.
 def adder(ll1, ll2):
     len1, len2 = len(ll1), len(ll2)
 

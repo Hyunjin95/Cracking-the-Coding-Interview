@@ -2,7 +2,7 @@ import unittest
 from linked_list import LinkedList
 
 
-# Remove duplicate items in a unsorted linked list. Temporary buffers cannot be used.
+# Remove duplicate items in an unsorted linked list. Temporary buffers are now allowed to use.
 def remove_duplicate(ll):
     slower = ll.head
     while slower:

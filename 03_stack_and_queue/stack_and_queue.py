@@ -28,7 +28,7 @@ class Node:
 
 
 class Stack:
-    """Basic stack class using a linked list."""
+    """Basic stack class that uses a linked list."""
     def __init__(self, item=None):
         if not item:
             self._top = None
@@ -100,7 +100,7 @@ class Stack:
 
 
 class Queue:
-    """Basic queue class using a linked list."""
+    """Basic queue class that uses a linked list."""
     def __init__(self, item=None):
         if not item:
             self._first = None

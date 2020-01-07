@@ -2,8 +2,8 @@ import unittest
 from linked_list import LinkedList
 
 
-# Remove a node in a single linked list. The node is not the beginning nor the end of the list.
-# You can only access the node you will delete.
+# Remove a node in a single linked list. The node is not at the beginning nor the end of the list.
+# You can only access the node you are deleting.
 def remove_middle_node(node):
     next_node = node.next
     node.item = next_node.item

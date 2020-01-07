@@ -2,9 +2,9 @@ import unittest
 from linked_list import LinkedList
 
 
-# Find a k-th element to last in a single linked list.
+# Find a k-th element from the end in a single linked list.
 def kth_element_to_last(ll, k):
-    # Assuming the index of the last element is 1.
+    # Assume that the index of the last element is 1.
     if k == 0:
         return None
     

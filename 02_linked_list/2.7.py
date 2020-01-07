@@ -2,7 +2,7 @@ import unittest
 from linked_list import LinkedList
 
 
-# Return the first node of the intersection of two linked lists.
+# Return the first node of the intersection between two linked lists.
 def find_intersection(ll1, ll2):
     len1, len2 = len(ll1), len(ll2)
     curr1, curr2 = ll1.head, ll2.head

@@ -4,7 +4,7 @@ from stack_and_queue import Stack
 
 
 # Define a stack class made of a set of multiple stacks.
-# Each stack has a capacity. Create a new stack if the last stack exceeds its capacity.
+# Each stack has a capacity. Create a new stack if the last stack exceeds its own capacity.
 class StackWithCapacity(Stack):
 
     def __init__(self, capacity):
@@ -92,7 +92,7 @@ class SetOfStacks(metaclass=ABCMeta):
         return self.stack_list[-1]
 
 
-# It moves the items of the following stacks. Stacks are always full except the last stack.
+# It moves the items in the following stacks. Stacks must be always full except for the last stack.
 class DynamicSetOfStacks(SetOfStacks):
 
     def pop_back_at(self, index):
@@ -192,5 +192,3 @@ class Test(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-

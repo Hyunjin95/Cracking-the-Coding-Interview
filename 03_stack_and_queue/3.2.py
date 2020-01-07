@@ -1,9 +1,8 @@
 import unittest
-from stack_and_queue import Node
-from stack_and_queue import Stack
+from stack_and_queue import Node, Stack
 
 
-# Implement a stack that the time complexity of push(), pop(), min() of the stack is all O(1).
+# Implement a stack that the time complexity of push(), pop() and min() of the stack is all O(1).
 class NodeMin(Node):
 
     def __init__(self, item):

@@ -1,10 +1,9 @@
 import unittest
-from abc import ABCMeta
-from abc import abstractmethod
+from abc import ABCMeta, abstractmethod
 from stack_and_queue import Stack
 
 
-# Define a queue class with two stacks.
+# Define the class of a queue with two stacks.
 class QueueWithDoubleStacks(metaclass=ABCMeta):
 
     def __init__(self):

@@ -3,7 +3,7 @@ from stack_and_queue import Queue, Node
 from abc import ABCMeta
 
 
-# Implement an animal shelter that consists of dogs and cats.
+# Implement an animal shelter that can adopt dogs and cats.
 # When you take an animal, you take the oldest animal from the registration date.
 # You can choose the species of animals, but you can't adopt the specific animal.
 class AnimalNode(Node):
