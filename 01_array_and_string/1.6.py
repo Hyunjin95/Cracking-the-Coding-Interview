@@ -1,8 +1,8 @@
 import unittest
 
 
-# Compress a string by replacing consecutive characters with a character and a number.
-# Return the input string if the length of the compressed string is longer than the original string.
+# Compress a string by replacing consecutive characters with a character and the number of the character.
+# Return the original string if the length of the compressed string is longer than the original one.
 def compress(string):
     if len(string) == 0:
         return string

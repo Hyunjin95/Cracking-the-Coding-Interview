@@ -1,6 +1,6 @@
 import unittest
 
-# If a number of a MxN matrix is 0, set all rows and columns that have the number to 0.
+# If an element in an MxN matrix is 0, set all the elements of both a row and a column containing the number to 0.
 # The limit of additional space is O(1)!
 def zero_matrix(mat):
     if len(mat) == 0:

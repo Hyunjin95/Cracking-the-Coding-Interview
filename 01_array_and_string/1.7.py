@@ -1,7 +1,7 @@
 import unittest
 
 
-# In a NxN matrix representing an image, rotate the matrix to 90 degrees to the right side.
+# In an NxN matrix representing an image, rotate the matrix by 90 degrees to the right.
 # Each pixel of the matrix consists of four bytes and the limit of additional space is O(n).
 def rotate_matrix(mat):
     len_mat = len(mat)

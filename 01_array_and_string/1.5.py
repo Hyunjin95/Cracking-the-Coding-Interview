@@ -1,9 +1,9 @@
 import unittest
 
 
-# Check if two string can be the same by less than one modification.
+# Check if two strings can be the same by less than one modification.
 # The modification includes inserting, deleting, replacing a character.
-def one_modification(string1, string2):
+def modify_once(string1, string2):
     len_string1 = len(string1)
     len_string2 = len(string2)
 
@@ -38,11 +38,11 @@ def edit_string(shorter, longer):
 class Test(unittest.TestCase):
     
     def test(self):
-        self.assertEqual(one_modification("abc", "abd"), True)
-        self.assertEqual(one_modification("abc", "ab"), True)
-        self.assertEqual(one_modification("abc", "ac"), True)
-        self.assertEqual(one_modification("abc", "abe"), True)
-        self.assertEqual(one_modification("abc", "ade"), False)
+        self.assertEqual(modify_once("abc", "abd"), True)
+        self.assertEqual(modify_once("abc", "ab"), True)
+        self.assertEqual(modify_once("abc", "ac"), True)
+        self.assertEqual(modify_once("abc", "abe"), True)
+        self.assertEqual(modify_once("abc", "ade"), False)
 
 
 if __name__ == '__main__':
