@@ -14,6 +14,7 @@ def exists_path(c, a, b):
     for n in vertices:
         visited[n] = False
     visit(a, b, visited, graph)            
+    print(visited)
 
     return visited[b]
 
@@ -22,12 +23,14 @@ def visit(a, b, visited, graph):
     visited[a] = True
 
     if a == b:
-        return
+        return True
     
     node_root = graph[a]
     for neighbor in node_root:
         if visited[neighbor] == False:
-            visit(neighbor, b, visited, graph)
+            found = visit(neighbor, b, visited, graph)
+            if found:
+                break
 
 
 class Test(unittest.TestCase):
@@ -54,6 +57,13 @@ class Test(unittest.TestCase):
         self.assertEqual(exists_path(g, 6, 3), True)
         self.assertEqual(exists_path(g, 1, 0), True)
         self.assertEqual(exists_path(g, 4, 6), False)
+
+        g.add_edge(1, 7, 2)
+        g.add_edge(7, 8, 2)
+        g.add_edge(8, 9, 2)
+
+        self.assertEqual(exists_path(g, 0, 9), True)
+        self.assertEqual(exists_path(g, 0, 1), True)
 
 
 
