@@ -63,6 +63,7 @@ class Test(unittest.TestCase):
         g.add_edge(8, 9, 2)
 
         self.assertEqual(exists_path(g, 0, 9), True)
+        self.assertEqual(exists_path(g, 0, 7), True)
         self.assertEqual(exists_path(g, 0, 1), True)
 
 
