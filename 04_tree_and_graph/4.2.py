@@ -1,4 +1,5 @@
 import unittest
+from tree import Node
 
 
 
@@ -42,39 +43,6 @@ def get_height(node):
         return 1
     
     return max(get_height(node.left), get_height(node.right)) + 1
-
-
-class Node:
-    """ A node class for bst """
-    def __init__(self, item):
-        self._item = item
-        self._left = None
-        self._right = None
-    
-    @property
-    def item(self):
-        return self._item
-    
-    @item.setter
-    def item(self, item):
-        self._item = item
-    
-    @property
-    def left(self):
-        return self._left
-    
-    @left.setter
-    def left(self, left):
-        self._left = left
-    
-    @property
-    def right(self):
-        return self._right
-    
-    @right.setter
-    def right(self, right):
-        self._right = right
-
 
 
 class Test(unittest.TestCase):
