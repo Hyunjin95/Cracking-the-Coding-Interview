@@ -1,2 +1,5 @@
 # Python cache files
 *.pyc
+
+# VSCode setting files
+.vscode
