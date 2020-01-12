@@ -20,7 +20,7 @@ def _check_bst(node, min_range, max_range):
     left, right = node.left, node.right
 
     if left and not _check_bst(left, min_range, value) or right and not _check_bst(right, value, max_range):
-            return False
+        return False
 
     if min_range < value <= max_range:
         return True
