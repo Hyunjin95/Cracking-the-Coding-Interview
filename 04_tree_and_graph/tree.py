@@ -36,8 +36,11 @@ class Node:
 
 class BinarySearchTree:
     """ A binary search tree """
-    def __init__(self):
-        self._root = None
+    def __init__(self, node=None):
+        if node:
+            self._root = node
+        else:
+            self._root = None
 
     def __str__(self):
         return self.print_inorder(self.root)
