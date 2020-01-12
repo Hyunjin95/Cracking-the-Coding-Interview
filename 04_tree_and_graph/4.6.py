@@ -1,2 +1,18 @@
-# 후속자: 이진 탐색 트리에서 주어진 노드의 다음 노드(중위 후속자)를 찾는 알고리즘을 작성하라.
-# 각 노드에는 부모 노드를 가리키는 링크가 존재한다고 가정하자.
+import unittest
+
+
+
+# In a binary search tree, find an inorder successor of the given node.
+# Let assume that each node has a link pointing their parent.
+def find_inorder_sucessor():
+    pass
+
+
+class Test(unittest.TestCase):
+
+    def test(self):
+        pass
+
+
+if __name__ == "__main__":
+    unittest.main()
