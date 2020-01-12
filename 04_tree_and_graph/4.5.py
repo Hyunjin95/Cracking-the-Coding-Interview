@@ -59,9 +59,11 @@ class Test(unittest.TestCase):
         self.assertEqual(check_bst(t), False)
         r.right.right = Node(4)
         self.assertEqual(check_bst(t), True)
-        r.left = Node(0)
+        r.right.left = Node(2)
         self.assertEqual(check_bst(t), True)
-
+        r.right.left = Node(3)
+        self.assertEqual(check_bst(t), False)
+        
 
 if __name__ == '__main__':
     unittest.main()
