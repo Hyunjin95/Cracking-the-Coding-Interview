@@ -36,8 +36,9 @@ class Node:
 
 class BinarySearchTree:
     """ A binary search tree
+
         Attributes:
-            node: A root node
+            node: A root node (expected type: Node)
     """
     def __init__(self, root=None):
         if root:
