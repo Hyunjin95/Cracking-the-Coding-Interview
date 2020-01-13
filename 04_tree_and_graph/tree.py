@@ -35,10 +35,16 @@ class Node:
 
 
 class BinarySearchTree:
-    """ A binary search tree """
-    def __init__(self, node=None):
-        if node:
-            self._root = node
+    """ A binary search tree
+        Attributes:
+            node: A root node
+    """
+    def __init__(self, root=None):
+        if root:
+            if isinstance(root, Node):
+                self._root = root
+            else:
+                raise RuntimeError("Type expected: Node")
         else:
             self._root = None
 
