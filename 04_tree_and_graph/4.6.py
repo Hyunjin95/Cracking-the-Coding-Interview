@@ -6,8 +6,6 @@ from tree import Node, BinarySearchTree
 # In a binary search tree, find an inorder successor of the given node.
 # Let assume that each node has a link pointing their parent.
 def find_inorder_successor(n):
-    # right_child가 있으면 자신의 오른쪽 subtree의 가장 맨 왼쪽 node
-    # 없으면 자신의 부모 중 자기보다 오른쪽에 있는 거 리턴
     if n.right:
         return leftmost_child(n.right)
 
@@ -24,6 +22,7 @@ def leftmost_child(n):
         return n
 
     return leftmost_child(n.left)
+
 
 class NodeLingkingParent(Node):
     """ A node class that has a link to the parent node. """
@@ -109,9 +108,6 @@ class Test(unittest.TestCase):
         self.assertEqual(find_inorder_successor(root), root.right.left)
         self.assertEqual(find_inorder_successor(root.right), root.right.right)
         self.assertEqual(find_inorder_successor(root.right.right), None)
-
-        
-
 
 
 if __name__ == "__main__":
