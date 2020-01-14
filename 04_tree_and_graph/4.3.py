@@ -1,5 +1,6 @@
 import unittest
 from tree import BinarySearchTree
+from queue import Queue
 
 
 
@@ -8,18 +9,18 @@ from tree import BinarySearchTree
 def lists_of_tree(tree):
     root = tree.root
     lists_of_nodes = [[] for _ in range(tree.get_depth())]
-
-    q = []
-    q.insert(0, (root, 0))
-    while q:
-        curr = q.pop()
+    
+    q = Queue()
+    q.put((root, 0))
+    while not q.empty():
+        curr = q.get()
         node, depth = curr[0], curr[1]
         lists_of_nodes[depth].append(node.item)
 
         if node.left:
-            q.insert(0, (node.left, depth+1))
+            q.put((node.left, depth+1))
         if node.right:
-            q.insert(0, (node.right, depth+1))
+            q.put((node.right, depth+1))
     
     return lists_of_nodes
 

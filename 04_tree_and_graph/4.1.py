@@ -1,5 +1,6 @@
 import unittest
 from graph import GraphUsingList
+from queue import Queue
 
 
 
@@ -40,16 +41,16 @@ def exists_path_bfs(c, a, b):
 
     graph, vertices = c.graph, c.vertices
     # Act like a queue by using insert() and pop()
-    queue = []
+    queue = Queue()
     visited = dict()
 
     for n in vertices:
         visited[n] = False
     visited[a] = True
-    queue.insert(0, a)
+    queue.put(a)
 
-    while queue:
-        root = queue.pop()
+    while not queue.empty():
+        root = queue.get()
         root_node = graph[root]
 
         if root is b:
@@ -57,7 +58,7 @@ def exists_path_bfs(c, a, b):
 
         for neighbor in root_node:
             if not visited[neighbor]:
-                queue.insert(0, neighbor)
+                queue.put(neighbor)
                 visited[neighbor] = True
         
     print("BFS -", visited)
