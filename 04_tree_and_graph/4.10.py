@@ -29,6 +29,21 @@ def preorder_traversal(root):
     return [root.item] + preorder_traversal(root.left) + preorder_traversal(root.right)
 
 
+# This function does not traverse until the node is the same as T2.root.
+def check_subtree_advanced(node, t2):
+    if t2 is None:
+        return True
+    
+    if node is None:
+        return False
+
+    if node is t2.root:
+        if preorder_traversal(node) == preorder_traversal(t2.root):
+            return True
+    
+    return check_subtree_advanced(node.left, t2) or check_subtree_advanced(node.right, t2)
+
+
 class Test(unittest.TestCase):
 
     def test(self):
@@ -47,13 +62,17 @@ class Test(unittest.TestCase):
         t2.insert(7)
         t2.insert(8)
         self.assertEqual(check_subtree(t1.root, t2), False)
+        self.assertEqual(check_subtree_advanced(t1.root, t2), False)
         r.left.left.right = t2.root
         # Now t2 is a subtree of t1.
         self.assertEqual(check_subtree(t1.root, t2), True)
+        self.assertEqual(check_subtree_advanced(t1.root, t2), True)
         self.assertEqual(check_subtree(t1.root.left.left, t2), True)
+        self.assertEqual(check_subtree_advanced(t1.root.left.left, t2), True)
         r.left.left.right = Node(10)
         r.right.left.right = t2.root
         self.assertEqual(check_subtree(t1.root, t2), True)
+        self.assertEqual(check_subtree_advanced(t1.root, t2), True)
 
 
 if __name__ == "__main__":
