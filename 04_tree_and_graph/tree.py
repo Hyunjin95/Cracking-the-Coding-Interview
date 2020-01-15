@@ -50,7 +50,8 @@ class BinarySearchTree:
             self._root = None
 
     def __str__(self):
-        return self.print_inorder(self.root)
+        lst = [str(i) for i in self._print_inorder(self.root)]
+        return " -> ".join(lst)
 
     @property
     def root(self):
@@ -91,14 +92,11 @@ class BinarySearchTree:
                 node = node.left
         return False
     
-    def print_inorder(self, n):
+    def _print_inorder(self, n):
         if not n:
-            return ""
-        if not (n.left or n.right):
-            return str(n.item)
-
-        return self.print_inorder(n.left) + " -> " + str(n.item) + " -> " + self.print_inorder(n.right)
-    
+            return []
+        return self._print_inorder(n.left) + [n.item] + self._print_inorder(n.right)
+        
     def is_empty(self):
         if not self.root:
             return True
