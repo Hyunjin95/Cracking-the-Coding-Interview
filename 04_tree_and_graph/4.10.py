@@ -1,4 +1,57 @@
-# 하위 트리 확인: 두 개의 커다란 이진 트리 T1과 T2가 있다고 하자.
-# T1이 T2보다 훨씬 크다고 했을 때, T2가 T1의 하위 트리(subtree)인지 판별하는 알고리즘을 만들라.
-# T1 안에 있는 노드 n의 하위 트리가 T2와 동일하면, T2는 T1의 하위 트리이다.
-# 다시 말해, T1에서 노트 n의 아래쪽을 끊어 냈을 때 그 결과가 T2와 동일해야 한다.
+import unittest
+from tree import Node, BinarySearchTree
+
+
+
+# There are two big binary trees T1 and T2.
+# Assuming T1 is much bigger than T2, check whether T2 is a subtree of T1.
+# If the subtree of a node N in T1 is the same as T2, T2 is a subtree of T1.
+def check_subtree(node, t2):
+    if node is None:
+        return False
+
+    if preorder_traversal(node) == preorder_traversal(t2.root):
+        return True
+    
+    is_left_same = check_subtree(node.left, t2)
+    is_right_same = check_subtree(node.right, t2)
+    return is_left_same or is_right_same
+
+
+def preorder_traversal(root):
+    # Add Nonetype to the list in order to save the structure of the tree.
+    if root is None:
+        return [None]
+
+    return [root.item] + preorder_traversal(root.left) + preorder_traversal(root.right)
+
+
+class Test(unittest.TestCase):
+
+    def test(self):
+        t1, t2 = BinarySearchTree(), BinarySearchTree()
+        t1.insert(0)
+        r = t1.root
+        r.left = Node(1)
+        r.right = Node(3)
+        r.left.left = Node(4)
+        r.left.right = Node(5)
+        r.right.left = Node(6)
+        r.right.right = Node(7)
+        t2.insert(5)
+        t2.insert(6)
+        t2.insert(4)
+        t2.insert(7)
+        t2.insert(8)
+        self.assertEqual(check_subtree(t1.root, t2), False)
+        r.left.left.right = t2.root
+        # Now t2 is a subtree of t1.
+        self.assertEqual(check_subtree(t1.root, t2), True)
+        self.assertEqual(check_subtree(t1.root.left.left, t2), True)
+        r.left.left.right = Node(10)
+        r.right.left.right = t2.root
+        self.assertEqual(check_subtree(t1.root, t2), True)
+
+
+if __name__ == "__main__":
+    unittest.main()
