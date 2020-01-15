@@ -7,6 +7,9 @@ from tree import Node, BinarySearchTree
 # Assuming T1 is much bigger than T2, check whether T2 is a subtree of T1.
 # If the subtree of a node N in T1 is the same as T2, T2 is a subtree of T1.
 def check_subtree(node, t2):
+    if t2 is None:
+        return True
+        
     if node is None:
         return False
 
