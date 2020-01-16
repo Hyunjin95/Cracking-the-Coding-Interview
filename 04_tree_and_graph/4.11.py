@@ -96,6 +96,27 @@ class BinaryTree:
         return self._inorder_traversal(root.left) + [root.item] + self._inorder_traversal(root.right)
 
 
+class EfficientBinaryTree(BinaryTree):
+    """ A binary tree class that implements get_random_node() more efficiently """
+    def get_random_node(self):
+        if self.is_empty():
+            return None
+        
+        # This number will be reused over the recursion.
+        random_num = random.randint(0, self.root.size-1)
+        return self._get_random_node_helper(self.root, random_num)
+    
+    def _get_random_node_helper(self, node, i):
+        left_size = left_size = node.left.size if node.left is not None else 0
+        
+        if i < left_size:
+            return self._get_random_node_helper(node.left, i)
+        elif i == left_size:
+            return node
+        else:
+            return self._get_random_node_helper(node.right, i - (left_size+1))
+
+
 class Test(unittest.TestCase):
     
     def test(self):
@@ -121,6 +142,15 @@ class Test(unittest.TestCase):
         self.assertEqual(t.search(0), t.root.left.left)
         self.assertEqual(t.search(5), t.root.right)
         self.assertEqual(t.search(4), None)
+        nodes = {t.root, t.root.left, t.root.left.left, t.root.right}
+        self.assertEqual(t.get_random_node() in nodes, True)
+
+    def test_efficient_ver(self):
+        t = EfficientBinaryTree()
+        t.insert(3)
+        t.insert(1)
+        t.insert(5)
+        t.insert(0)
         nodes = {t.root, t.root.left, t.root.left.left, t.root.right}
         self.assertEqual(t.get_random_node() in nodes, True)
    
